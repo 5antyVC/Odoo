@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data >
+        <!-- Vista de Lista-->
+        <record id="view_cita_tree" model="ir.ui.view">
+            <field name = "name">citas.cita.tree</field>
+            <field name = "model">citas.cita</field>
+            <field name = "arch" type="xml">
+                <sheet>
+                    <tree>
+                        <field name="Fecha"></field>
+                        <field name="Medico_Asociado"></field>
+                        <field name="Paciente_Asociado"></field>
+                        <field name="Estado_Cita"></field>
+                    </tree>
+                </sheet>
+            </field>
+        </record>
+
+        <record id="view_medico_tree" model="ir.ui.view">
+            <field name = "name">citas.medico.tree</field>
+            <field name = "model">citas.medico</field>
+            <field name = "arch" type="xml">
+                <sheet>
+                    <tree>
+                        <field name="Nombre"></field>
+                        <field name="Apellido"></field>
+                        <field name="Especialidad"></field>
+                        <field name="Citas Asociadas"></field>
+                    </tree>
+                </sheet>
+            </field>
+        </record>
+
+        <record id="view_paciente_tree" model="ir.ui.view">
+            <field name = "name">citas.paciente.tree</field>
+            <field name = "model">citas.paciente</field>
+            <field name = "arch" type="xml">
+                <sheet>
+                    <tree>
+                        <field name="Nombre"></field>
+                        <field name="Apellido"></field>
+                        <field name="Género"></field>
+                        <field name="Citas Solicitadas"></field>
+                    </tree>
+                </sheet>
+            </field>
+        </record>
+        <!-- Fin Vista de Lista-->
+
+        <!-- Vista de Formulario-->
+        <record id="view_cita_form" model="ir.ui.view">
+            <field name = "name">citas.cita.form</field>
+            <field name = "model">citas.cita</field>
+            <field name = "arch" type="xml">
+                <sheet>
+                    <form>
+                        <group>
+                            <field name="Fecha"></field>
+                            <field name="Medico_Asociado"></field>
+                            <field name="Paciente_Asociado"></field>
+                            <field name="Estado_Cita"></field>
+                        </group>
+                    </form>
+                </sheet>
+            </field>
+        </record>
+
+        <record id="view_medico_form" model="ir.ui.view">
+            <field name = "name">citas.medico.form</field>
+            <field name = "model">citas.medico</field>
+            <field name = "arch" type="xml">
+                <sheet>
+                    <form>
+                        <group>
+                            <field name="Nombre"></field>
+                            <field name="Apellido"></field>
+                            <field name="Especialidad"></field>
+                            <field name="Citas Asociadas"></field>
+                        </group>
+                    </form>
+                </sheet>
+            </field>
+        </record>
+
+        <record id="view_paciente_form" model="ir.ui.view">
+            <field name = "name">citas.paciente.form</field>
+            <field name = "model">citas.paciente</field>
+            <field name = "arch" type="xml">
+                <sheet>
+                    <form>
+                        <group>
+                            <field name="Nombre"></field>
+                            <field name="Apellido"></field>
+                            <field name="Género"></field>
+                            <field name="Citas Solicitadas"></field>
+                        </group>
+                    </form>
+                </sheet>
+            </field>
+        </record>
+        <!-- Fin Vista de Formulario-->
+
+        <!-- Acciones-->
+        <record id="action_cita" model="ir.actions.act_window">
+            <field name="name">Cita</field>
+            <field name="res_model">citas.cita</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref= "view_cita_tree"></field>
+        </record>
+
+        <record id="action_medico" model="ir.actions.act_window">
+            <field name="name">Medico</field>
+            <field name="res_model">citas.medico</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref= "view_medico_tree"></field>
+        </record>
+
+        <record id="action_paciente" model="ir.actions.act_window">
+            <field name="name">Paciente</field>
+            <field name="res_model">citas.medico</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref= "view_paciente_tree"></field>
+        </record>
+        <!-- Fin Acciones-->
+
+        <!-- Menu-->
+        <menuitem id="model_cita" name="Cita"  sequence="10"/>
+        <menuitem id="model_cita2" name="Cita2" parent="model_cita" action="action_cita"/>
+
+        <menuitem id="model_medico" name="Medico"  sequence="10"/>
+        <menuitem id="model_medico2" name="Medico2" parent="model_medico" action="action_medico"/>
+
+        <menuitem id="model_paciente" name="Paciente"  sequence="10"/>
+        <menuitem id="model_paciente2" name="Paciente2" parent="model_paciente" action="action_paciente"/>
+
+        <!-- Fin Menu-->
+        
+    </data>
+</odoo>
